@@ -1,4 +1,5 @@
-import { ComponentMeta, ComponentStoryObj } from '../src/types';
+import * as React from 'react';
+import { Meta, StoryObj } from '../src/types';
 
 interface StoryParameters {
   cookies: string;
@@ -6,9 +7,9 @@ interface StoryParameters {
 
 const Header = () => <div>Header</div>;
 
-type Story = ComponentStoryObj<typeof Header, StoryParameters>;
+type Story = StoryObj<typeof Header, StoryParameters>;
 
-const meta: ComponentMeta<typeof Header, StoryParameters> = {
+const meta: Meta<typeof Header, StoryParameters> = {
   title: 'Header',
   component: Header,
 };
@@ -16,7 +17,9 @@ const meta: ComponentMeta<typeof Header, StoryParameters> = {
 export default meta;
 
 export const JohnLoggedIn: Story = {
+  //
   // Will show missing `cookies` property error
+  //
   parameters: {},
 };
 

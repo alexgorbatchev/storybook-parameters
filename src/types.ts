@@ -1,19 +1,23 @@
 import { JSXElementConstructor } from 'react';
 
-import {
-    ComponentMeta as ComponentMetaOrig, ComponentStoryObj as ComponentStoryObjOrig, Parameters
-} from '@storybook/react';
+import { Meta as MetaOrig, StoryObj as StoryObjOrig, Parameters } from '@storybook/react';
 
-export type ComponentMeta<
+/**
+ * Storybook's `Meta` type with a typed `parameters` property.
+ */
+export type Meta<
   T extends keyof JSX.IntrinsicElements | JSXElementConstructor<any>,
   TParameters = Parameters,
-> = ComponentMetaOrig<T> & {
+> = MetaOrig<T> & {
   parameters?: TParameters;
 };
 
-export type ComponentStoryObj<
+/**
+ * Storybook's `StoryObj` type with a typed `parameters` property.
+ */
+export type StoryObj<
   T extends keyof JSX.IntrinsicElements | JSXElementConstructor<any>,
   TParameters = Parameters,
-> = ComponentStoryObjOrig<T> & {
+> = StoryObjOrig<T> & {
   parameters?: TParameters;
 };

@@ -1,6 +1,7 @@
 # Strongly Typed Parameters for Storybook
 
-This module only exports strongly TypeScript typings to assist with making [Storybook](https://storybook.js.org/)'s `Parameters` strongly typed.
+This module only exports strongly TypeScript typings to assist with making [Storybook](https://storybook.js.org/)'s `Parameters` strongly typed. Requires
+Storybook v8.
 
 ## Install
 
@@ -11,7 +12,7 @@ yarn add -D @alexgorbatchev/storybook-parameters
 ## Example
 
 ```tsx
-import { ComponentMeta, ComponentStoryObj } from '@alexgorbatchev/storybook-parameters';
+import { Meta, StoryObj } from '@alexgorbatchev/storybook-parameters';
 
 interface StoryParameters {
   cookies: string;
@@ -19,9 +20,9 @@ interface StoryParameters {
 
 const Header = () => <div>Header</div>;
 
-type Story = ComponentStoryObj<typeof Header, StoryParameters>;
+type Story = StoryObj<typeof Header, StoryParameters>;
 
-const meta: ComponentMeta<typeof Header, StoryParameters> = {
+const meta: Meta<typeof Header, StoryParameters> = {
   title: 'Header',
   component: Header,
 };
