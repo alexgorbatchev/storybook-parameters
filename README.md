@@ -9,7 +9,7 @@ Storybook v8.
 yarn add -D @alexgorbatchev/storybook-parameters
 ```
 
-## Example
+## Example Story
 
 ```tsx
 import { Meta, StoryObj } from '@alexgorbatchev/storybook-parameters';
@@ -41,6 +41,10 @@ export const JaneLoggedIn: Story = {
   },
 };
 ```
+
+## Tests
+
+If `composeStories` from `@storybook/react` is giving you Type trouble, try using `composeStories` from this module.
 
 ### Development scripts
 

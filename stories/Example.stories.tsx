@@ -5,7 +5,8 @@ interface StoryParameters {
   cookies: string;
 }
 
-const Header = () => <div>Header</div>;
+type HeaderProps = { foo: number };
+const Header = (props: HeaderProps) => <div>Header</div>;
 
 type Story = StoryObj<typeof Header, StoryParameters>;
 
@@ -23,7 +24,7 @@ export const JohnLoggedIn: Story = {
   parameters: {},
 };
 
-export const JaneLoggedIn: Story = {
+export const JaneLoggedOut: Story = {
   parameters: {
     // strongly typed `cookies` property
     cookies: '123',
