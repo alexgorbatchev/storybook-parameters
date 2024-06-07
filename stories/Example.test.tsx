@@ -2,9 +2,9 @@ import * as React from 'react';
 
 import * as stories from './Example.stories';
 
-import { composeStories } from '../src/composeStories';
+import { composeStories as composeStoriesOrig } from '@storybook/react';
 
-const { JohnLoggedIn, JaneLoggedOut } = composeStories(stories);
+const { JohnLoggedIn, JaneLoggedOut } = composeStoriesOrig(stories);
 
 console.log(<JaneLoggedOut />);
 console.log(<JohnLoggedIn />);

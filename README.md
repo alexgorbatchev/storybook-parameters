@@ -1,12 +1,12 @@
-# Strongly Typed Parameters for Storybook
+# Strongly Typed Parameters for Storybook (React)
 
-This module only exports strongly TypeScript typings to assist with making [Storybook](https://storybook.js.org/)'s `Parameters` strongly typed. Requires
+This module only exports TypeScript typings to assist with making [Storybook](https://storybook.js.org/)'s `Parameters` strongly typed. Requires
 Storybook v8.
 
 ## Install
 
 ```sh
-yarn add -D @alexgorbatchev/storybook-parameters
+npm i --save-dev @alexgorbatchev/storybook-parameters
 ```
 
 ## Example Story
@@ -42,11 +42,6 @@ export const JaneLoggedIn: Story = {
 };
 ```
 
-## Tests
+## Development Scripts
 
-If `composeStories` from `@storybook/react` is giving you Type trouble, try using `composeStories` from this module.
-
-### Development scripts
-
-- `yarn start` runs babel in watch mode and starts Storybook
-- `yarn build` build and package your addon code
+- `npm run build` builds the `dist` folder
