@@ -1,12 +1,15 @@
 import * as React from 'react';
 import { Meta, StoryObj } from '../src/types';
-import { Args } from '@storybook/types';
 
 interface StoryParameters {
   cookies: string;
 }
 
-type HeaderProps = { knownProperty: number };
+type HeaderProps = {
+  knownProperty: number;
+  anotherKnownProperty: string;
+};
+
 const Header = (props: HeaderProps) => <div>Header</div>;
 
 type Story = StoryObj<typeof Header, StoryParameters>;
@@ -38,6 +41,7 @@ export const JohnLoggedIn: Story = {
 };
 
 export const JaneLoggedOut: Story = {
+  args: {},
   parameters: {
     //
     // Strongly typed `cookies` property

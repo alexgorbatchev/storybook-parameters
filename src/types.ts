@@ -8,7 +8,7 @@ export interface Meta<
   TCmp extends keyof JSX.IntrinsicElements | JSXElementConstructor<any>,
   TParameters extends Parameters = Parameters,
 > extends MetaOrig {
-  args?: ComponentProps<TCmp>;
+  args?: Partial<ComponentProps<TCmp>>;
   parameters?: TParameters;
 }
 
