@@ -1,11 +1,11 @@
 {
   "name": "@alexgorbatchev/storybook-parameters",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "description": "TypeScript helpers for strongly typed Storybook parameters",
   "keywords": [
     "storybook",
     "parameters",
-    "test",
+    "react",
     "typescript"
   ],
   "repository": {
