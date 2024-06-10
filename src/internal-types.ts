@@ -1,12 +1,18 @@
-import { Parameters } from '@storybook/react';
-import { ComponentAnnotations, Renderer } from '@storybook/types';
+import { ComponentAnnotations, Parameters, Renderer, StoryAnnotationsOrFn } from '@storybook/types';
 
-export type WithParams<TMeta, TParameters extends Parameters> = Omit<TMeta, 'parameters'> & {
+export type WithParams<TStory, TParameters extends Parameters> = Omit<TStory, 'parameters'> & {
   parameters?: Partial<TParameters>;
 };
 
-export type RemoveWithParams<TStories, TRenderer extends Renderer> = TStories extends {
+export type ToStoryAnnotationsOrFn<TRenderer extends Renderer, TModule> = {
+  [K in keyof TModule as TModule[K] extends WithParams<infer _, infer _> ? K : never]: StoryAnnotationsOrFn<
+    TRenderer,
+    TModule[K]
+  >;
+};
+
+export type ToCSFExport<TRenderer extends Renderer, TStories> = TStories extends {
   default: WithParams<infer _, infer _>;
 }
-  ? { default: ComponentAnnotations<TRenderer, any> } & TStories
+  ? TStories & { default: ComponentAnnotations<TRenderer, any> }
   : never;

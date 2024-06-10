@@ -1,6 +1,6 @@
 # Strongly Typed Parameters for Storybook
 
-This module only exports TypeScript typings to assist with making [Storybook](https://storybook.js.org/)'s `Parameters`
+This module only exports TypeScript typings to assist with making [Storybook](https://storybook.js.org/)'s `Meta.parameters`
 strongly typed. Requires Storybook v8.
 
 Why is this useful? For large projects that connect a number of global addons which expect own set of properties, it's very helpful to thave these properties to be strongly typed.
@@ -62,6 +62,18 @@ import * as stories from './Example.stories';
 // don't work well with typed `parameters`.
 const { JohnLoggedIn, JaneLoggedOut } = composeStories(toCompose(stories));
 const JaneLoggedOutOther = composeStory(stories.JaneLoggedOut, toCompose(stories.default));
+```
+
+Alternatively this package provides shims for `composeStories` and `composeStory`:
+
+```tsx
+import * as React from 'react';
+import { composeStories, composeStory } from '@alexgorbatchev/storybook-parameters';
+
+import * as stories from './Example.stories';
+
+const { JohnLoggedIn, JaneLoggedOut } = composeStories(stories);
+const JaneLoggedOutOther = composeStory(stories.JaneLoggedOut, stories.default);
 ```
 
 ## Development Scripts
