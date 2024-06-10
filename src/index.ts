@@ -1,1 +1,2 @@
-export * from './types';
+export type * from './StoryObj';
+export * from './toCompose';

@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { Meta, StoryObj } from '../src/types';
+import { Meta, StoryObj } from '../src/react';
+import { StoryFn } from '@storybook/react';
 
 interface StoryParameters {
   cookies: string;
@@ -12,6 +13,10 @@ type HeaderProps = {
 
 const Header = (props: HeaderProps) => <div>Header</div>;
 
+const HeaderWrapper: StoryFn<typeof Header> = ({ ...args }) => {
+  return <Header {...args} />;
+};
+
 type Story = StoryObj<typeof Header, StoryParameters>;
 
 const meta: Meta<typeof Header, StoryParameters> = {
@@ -22,6 +27,10 @@ const meta: Meta<typeof Header, StoryParameters> = {
 
     // Will show "does not exist in type HeaderProps" error
     unknownProperty: 1,
+  },
+  render: HeaderWrapper,
+  parameters: {
+    foo: 1,
   },
 };
 

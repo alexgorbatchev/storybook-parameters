@@ -2,9 +2,12 @@ import * as React from 'react';
 
 import * as stories from './Example.stories';
 
-import { composeStories as composeStoriesOrig } from '@storybook/react';
+import { composeStories, composeStory } from '@storybook/react';
+import { toCompose } from '../src/index';
 
-const { JohnLoggedIn, JaneLoggedOut } = composeStoriesOrig(stories);
+const { JohnLoggedIn, JaneLoggedOut } = composeStories(toCompose(stories));
+const JaneLoggedOutOther = composeStory(stories.JaneLoggedOut, toCompose(stories.default));
 
 console.log(<JaneLoggedOut />);
 console.log(<JohnLoggedIn />);
+console.log(<JaneLoggedOutOther />);
