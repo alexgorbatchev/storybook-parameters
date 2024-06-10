@@ -1,6 +1,6 @@
 {
   "name": "@alexgorbatchev/storybook-parameters",
-  "version": "4.0.0",
+  "version": "4.1.0",
   "description": "TypeScript helpers for strongly typed Storybook parameters",
   "keywords": [
     "storybook",
