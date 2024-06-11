@@ -30,6 +30,7 @@ const meta: Meta<typeof Header, StoryParameters> = {
   },
   render: HeaderWrapper,
   parameters: {
+    // Should work
     foo: 1,
   },
 };
@@ -43,18 +44,16 @@ export const JohnLoggedIn: Story = {
     // Will show "does not exist in type HeaderProps" error
     unknownProperty: 1,
   },
-  //
-  // Will show missing `cookies` property error
-  //
   parameters: {},
 };
 
 export const JaneLoggedOut: Story = {
   args: {},
   parameters: {
-    //
     // Strongly typed `cookies` property
-    //
     cookies: '123',
+
+    // Should work
+    foo: 1,
   },
 };

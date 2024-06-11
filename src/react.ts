@@ -1,26 +1,25 @@
 import { composeStories as composeStoriesOrig, composeStory as composeStoryOrig } from '@storybook/react';
 
 import type { Args, Parameters, ReactRenderer } from '@storybook/react';
-import type { ComponentProps, ComponentType } from 'react';
-import type { ProjectAnnotations, Store_CSFExports } from '@storybook/types';
 import type {
   ComponentAnnotations,
   ComposedStoryFn,
+  ProjectAnnotations,
   Renderer,
+  Store_CSFExports,
   StoriesWithPartialProps,
   StoryAnnotationsOrFn,
 } from '@storybook/types';
+import type { ComponentProps, ComponentType } from 'react';
 
-import type { ToCSFExport, ToStoryAnnotationsOrFn, WithParams } from './internal-types';
-export type { StoryObj } from './StoryObj';
+import type { ToCSFExport, ToStoryAnnotationsOrFn, TypedCSFExport, WithParams } from './internal-types';
 import { toCompose } from './toCompose';
-
-type TypedCSFExport<TParameters> = { default: ComponentAnnotations<ReactRenderer, TParameters> };
+export type { StoryObj } from './StoryObj';
 
 type BaseMeta<TRenderer extends Renderer, TCmpOrArgs = Args, TParametrers = Parameters> =
   TCmpOrArgs extends ComponentType<any>
-    ? WithParams<ComponentAnnotations<TRenderer, ComponentProps<TCmpOrArgs>>, TParametrers>
-    : WithParams<ComponentAnnotations<TRenderer, TCmpOrArgs>, TParametrers>;
+    ? WithParams<TRenderer, ComponentAnnotations<TRenderer, ComponentProps<TCmpOrArgs>>, TParametrers>
+    : WithParams<TRenderer, ComponentAnnotations<TRenderer, TCmpOrArgs>, TParametrers>;
 
 /**
  * Storybook's React `Meta` type with an additional argument that changes `parameters` to be strongly typed.
@@ -32,7 +31,10 @@ export type Meta<TCmpOrArgs = Args, TParametrers = Parameters> = BaseMeta<ReactR
  * package.
  */
 export function composeStories<
-  TTypedCSFExport extends TypedCSFExport<TTypedCSFExport extends TypedCSFExport<infer A> ? A : never>,
+  TTypedCSFExport extends TypedCSFExport<
+    ReactRenderer,
+    TTypedCSFExport extends TypedCSFExport<ReactRenderer, infer A> ? A : never
+  >,
   TCompatCSFExport extends Store_CSFExports<ReactRenderer, any> = ToCSFExport<
     ReactRenderer,
     ToStoryAnnotationsOrFn<ReactRenderer, TTypedCSFExport>

@@ -4,9 +4,16 @@ import * as stories from './Example.stories';
 
 import { composeStories, composeStory } from '../src/react';
 
-const { JohnLoggedIn, JaneLoggedOut } = composeStories(stories);
+// Unknown should be an error
+const { Unknown, JohnLoggedIn, JaneLoggedOut } = composeStories(stories);
 const JaneLoggedOutOther = composeStory(stories.JaneLoggedOut, stories.default);
 
-console.log(<JaneLoggedOut />);
-console.log(<JohnLoggedIn />);
-console.log(<JaneLoggedOutOther />);
+// Should work
+JohnLoggedIn.args!.knownProperty = 1;
+
+// Should not work
+JohnLoggedIn.args!.invalidProperty = 1;
+
+<JaneLoggedOut knownProperty={1} />;
+<JohnLoggedIn />;
+<JaneLoggedOutOther />;
