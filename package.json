@@ -17,22 +17,16 @@
   "license": "MIT",
   "exports": {
     ".": {
-      "types": "./dist/index.d.mts",
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.js",
       "node": "./dist/index.js"
-    },
-    "./react": {
-      "types": "./dist/react.d.mts",
-      "import": "./dist/react.mjs",
-      "require": "./dist/react.js",
-      "node": "./dist/react.js"
     },
     "./package.json": "./package.json"
   },
   "main": "dist/index.mjs",
   "module": "dist/index.mjs",
-  "types": "dist/index.d.mts",
+  "types": "dist/index.d.ts",
   "files": [
     "dist/**/*",
     "README.md",

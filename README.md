@@ -16,7 +16,9 @@ npm i --save-dev @alexgorbatchev/storybook-parameters
 ## Example Story
 
 ```tsx
-import { Meta, StoryObj } from '@alexgorbatchev/storybook-parameters/react';
+import { react } from '@alexgorbatchev/storybook-parameters';
+
+const { Meta, StoryObj } = react;
 
 const Header = () => <div>Header</div>;
 
@@ -68,12 +70,21 @@ Alternatively this package provides shims for `composeStories` and `composeStory
 
 ```tsx
 import * as React from 'react';
-import { composeStories, composeStory } from '@alexgorbatchev/storybook-parameters';
+import { react } from '@alexgorbatchev/storybook-parameters';
 
 import * as stories from './Example.stories';
 
+const { composeStories, composeStory } = react;
 const { JohnLoggedIn, JaneLoggedOut } = composeStories(stories);
 const JaneLoggedOutOther = composeStory(stories.JaneLoggedOut, stories.default);
+```
+
+If you don't want to always use `react...` or `const {} = react`, you can reexport these methods locally for ease of reference. Same applies to `Meta` and `StoryObj`.
+
+```tsx
+import { react } from '@alexgorbatchev/storybook-parameters';
+const { composeStories, composeStory } = react;
+export { composeStories, composeStory };
 ```
 
 ## Development Scripts
