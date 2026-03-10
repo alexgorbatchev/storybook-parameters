@@ -9,7 +9,7 @@ import type {
   Store_CSFExports,
   StoriesWithPartialProps,
   StoryAnnotationsOrFn,
-} from '@storybook/types';
+} from 'storybook/internal/types';
 import type { ComponentProps, ComponentType } from 'react';
 
 import type { ToCSFExport, ToStoryAnnotationsOrFn, TypedCSFExport, WithParams } from './internal-types';
