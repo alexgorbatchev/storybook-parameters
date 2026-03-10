@@ -25,7 +25,7 @@ const meta: Meta<typeof Header, StoryParameters> = {
   args: {
     knownProperty: 1,
 
-    // Will show "does not exist in type HeaderProps" error
+    // @ts-expect-error — unknownProperty does not exist in HeaderProps
     unknownProperty: 1,
   },
   render: HeaderWrapper,
@@ -41,7 +41,7 @@ export const JohnLoggedIn: Story = {
   args: {
     knownProperty: 1,
 
-    // Will show "does not exist in type HeaderProps" error
+    // @ts-expect-error — unknownProperty does not exist in HeaderProps
     unknownProperty: 1,
   },
   parameters: {},

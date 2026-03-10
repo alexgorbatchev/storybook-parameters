@@ -13,6 +13,6 @@
     "skipLibCheck": true,
     "target": "ES2020"
   },
-  "include": ["src"],
+  "include": ["src", "stories"],
   "exclude": ["dist", "**/dist", "node_modules", "**/node_modules"]
 }
