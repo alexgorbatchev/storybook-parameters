@@ -1,4 +1,4 @@
-import { ComponentAnnotations, Parameters, Renderer, StoryAnnotationsOrFn } from '@storybook/types';
+import { ComponentAnnotations, Parameters, Renderer, StoryAnnotationsOrFn } from 'storybook/internal/types';
 
 export type WithParams<
   TRenderer extends Renderer,

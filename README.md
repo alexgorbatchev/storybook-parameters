@@ -1,9 +1,9 @@
 # Strongly Typed Parameters for Storybook
 
 This module only exports TypeScript typings to assist with making [Storybook](https://storybook.js.org/)'s `Meta.parameters`
-strongly typed. Requires Storybook v8.
+strongly typed. Requires Storybook v10.
 
-Why is this useful? For large projects that connect a number of global addons which expect own set of properties, it's very helpful to thave these properties to be strongly typed.
+Why is this useful? For large projects that connect a number of global addons which expect own set of properties, it's very helpful to have these properties be strongly typed.
 
 Currently only React is supported, however adding new render targets should be trivial. PRs welcome!
 
@@ -90,3 +90,4 @@ export { composeStories, composeStory };
 ## Development Scripts
 
 - `npm run build` builds the `dist` folder
+- `npm run typecheck` runs `tsc --noEmit` to verify types

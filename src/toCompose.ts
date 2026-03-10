@@ -1,4 +1,4 @@
-import type { Store_CSFExports } from '@storybook/types';
+import type { Store_CSFExports } from 'storybook/internal/types';
 import type { ToCSFExport } from './internal-types';
 
 /**
